@@ -25,6 +25,7 @@ public class Controle {
 	public void cadastrar(@RequestBody Produto p) {
 		repo.save(p);
 	}
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	@GetMapping("/listar")
 	public List<Produto> listar(){
 		return repo.findAll();
@@ -34,6 +35,7 @@ public class Controle {
 		return "Hello world";
 	}
 	
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	@PutMapping("/atualizar/{id}")	
 	public void atualizar(@PathVariable Long id, @RequestBody Produto prod){
 		Produto p = repo.findById(id).orElse(null);
@@ -44,6 +46,7 @@ public class Controle {
 		}
 	}
 	
+	@CrossOrigin(origins = "*", allowedHeaders = "*") 
 	@DeleteMapping("/deletar/{id}")
 	public void deleteProduto(@PathVariable Long id) {
 		Produto p = repo.findById(id).orElse(null);
